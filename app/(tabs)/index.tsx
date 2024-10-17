@@ -1,70 +1,104 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import React from 'react';
+import { ImageBackground, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, useColorScheme } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Colors } from '@/constants/Colors';
+import FontSize from '@/constants/FontSize';
+import Spacing from '@/constants/Spacing';
+import Font from '@/constants/Font';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+export default function WelcomeScreen() {
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === 'dark';
+  const themeColors = isDarkMode ? Colors.dark : Colors.light;
 
-export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+    <SafeAreaView style={styles.container}>
+      <ImageBackground
+        source={require('@/assets/images/Welcome.jpg')}
+        style={styles.background}
+        resizeMode="cover"
+      >
+        <LinearGradient
+          colors={['rgba(0,0,0,0.4)', 'rgba(0,0,0,0.8)']}
+          style={styles.overlay}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+
+        <View style={styles.titleContainer}>
+          <Text style={[styles.title, { color: themeColors.text }]}>Welcome to Our App!</Text>
+          <Text style={[styles.subtitle, { color: themeColors.text }]}>Your journey to a better experience starts here.</Text>
+        </View>
+
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={[styles.primaryButton, { backgroundColor: themeColors.tint }]}>
+            <Text style={styles.primaryButtonText}>Get Started</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.secondaryButton}>
+            <Text style={styles.secondaryButtonText}>Learn More</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  background: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+  },
   titleContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    paddingHorizontal: Spacing * 2,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  title: {
+    fontSize: FontSize.xxLarge,
+    fontFamily: Font['poppins-bold'],
+    textAlign: 'center',
+    marginBottom: Spacing,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  subtitle: {
+    fontSize: FontSize.medium,
+    fontFamily: Font['poppins-regular'],
+    textAlign: 'center',
+    paddingHorizontal: Spacing * 4,
+  },
+  buttonsContainer: {
+    marginTop: Spacing * 5,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingHorizontal: Spacing * 2,
+  },
+  primaryButton: {
+    paddingVertical: Spacing * 1.5,
+    paddingHorizontal: Spacing * 4,
+    borderRadius: Spacing,
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+  },
+  primaryButtonText: {
+    fontFamily: Font['poppins-bold'],
+    color: "#fff",
+    fontSize: FontSize.large,
+    textAlign: 'center',
+  },
+  secondaryButton: {
+    paddingVertical: Spacing * 1.5,
+    paddingHorizontal: Spacing * 4,
+    borderRadius: Spacing,
+    borderColor: "#fff",
+    borderWidth: 1,
+  },
+  secondaryButtonText: {
+    fontFamily: Font['poppins-regular'],
+    color: "#fff",
+    fontSize: FontSize.large,
+    textAlign: 'center',
   },
 });
