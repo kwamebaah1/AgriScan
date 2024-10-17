@@ -5,6 +5,7 @@ import { Colors } from '@/constants/Colors';
 import FontSize from '@/constants/FontSize';
 import Spacing from '@/constants/Spacing';
 import Font from '@/constants/Font';
+import { Link } from 'expo-router';
 
 export default function WelcomeScreen() {
   const colorScheme = useColorScheme();
@@ -30,10 +31,14 @@ export default function WelcomeScreen() {
 
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={[styles.primaryButton, { backgroundColor: themeColors.tint }]}>
-            <Text style={styles.primaryButtonText}>Get Started</Text>
+            <Link href="/signUp">
+              <Text style={styles.primaryButtonText}>SignUp</Text>
+            </Link>
           </TouchableOpacity>
           <TouchableOpacity style={styles.secondaryButton}>
-            <Text style={styles.secondaryButtonText}>Learn More</Text>
+            <Link href="/signIn">
+              <Text style={styles.secondaryButtonText}>SignIn</Text>
+            </Link>
           </TouchableOpacity>
         </View>
       </ImageBackground>
