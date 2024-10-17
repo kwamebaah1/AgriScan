@@ -1,6 +1,6 @@
 # Welcome to AgriScan 👋
 
-This is a collaborative project
+This is a collaborative project to build an AI model that can precisely detect diseases in crops based on images with a mobile app.
 
 ## Get started
 
