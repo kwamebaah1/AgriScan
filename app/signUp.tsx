@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   container: {
-    flex: 1,
     justifyContent: 'flex-start',
     padding: 20,
   },
@@ -132,18 +131,18 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
     marginBottom: 10,
   },
   label: {
     width: 130,
-    fontSize: 16,
+    fontSize: 14,
     color: '#333',
   },
   input: {
-    flex: 1,
-    height: 50,
+    height: 40,
+    width: '100%',
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 5,
