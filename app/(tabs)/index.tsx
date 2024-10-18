@@ -25,7 +25,7 @@ export default function WelcomeScreen() {
         />
 
         <View style={styles.titleContainer}>
-          <Text style={[styles.title, { color: themeColors.text }]}>Welcome to Our App!</Text>
+          <Text style={[styles.title, { color: themeColors.text }]}>Welcome to AgriScan!</Text>
           <Text style={[styles.subtitle, { color: themeColors.text }]}>Your journey to a better experience starts here.</Text>
         </View>
 
