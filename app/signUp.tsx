@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'flex-start',
     padding: 20,
+    marginBottom: '40%'
   },
   title: {
     fontSize: 28,
@@ -139,6 +140,7 @@ const styles = StyleSheet.create({
     width: 130,
     fontSize: 14,
     color: '#333',
+    marginBottom: 1
   },
   input: {
     height: 40,
