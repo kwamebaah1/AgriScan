@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   formContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
     borderRadius: 10,
     padding: 20,
     marginHorizontal: 20,
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 15,
+    marginBottom: 10,
   },
   label: {
     width: 130,
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#0056b3',
     paddingVertical: 15,
-    borderRadius: 5,
+    borderRadius: 8,
     marginTop: 20,
     borderColor: '#004085',
     borderWidth: 1,
