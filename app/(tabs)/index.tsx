@@ -32,12 +32,12 @@ export default function WelcomeScreen() {
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={[styles.primaryButton, { backgroundColor: themeColors.tint }]}>
             <Link href="/signUp">
-              <Text style={styles.primaryButtonText}>SignUp</Text>
+              <Text style={styles.primaryButtonText}>Sign Up</Text>
             </Link>
           </TouchableOpacity>
           <TouchableOpacity style={styles.secondaryButton}>
             <Link href="/signIn">
-              <Text style={styles.secondaryButtonText}>SignIn</Text>
+              <Text style={styles.secondaryButtonText}>Sign In</Text>
             </Link>
           </TouchableOpacity>
         </View>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
   primaryButtonText: {
     fontFamily: Font['poppins-bold'],
-    color: "#fff",
+    color: "#000",
     fontSize: FontSize.large,
     textAlign: 'center',
   },
