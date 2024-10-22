@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ImageBackground } from 'react-native';
 
-const signIn = () => {
+const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,50 +16,52 @@ const signIn = () => {
 
   return (
     <ImageBackground 
-      source={{ uri: 'https://images.unsplash.com/photo-1534258936925-c58bed978e9e' }} 
+      source={{ uri: 'https://img.freepik.com/free-vector/tropical-leaves-background-theme_23-2148513684.jpg?size=626&ext=jpg' }} 
       style={styles.background}
       resizeMode="cover"
     >
-      <View style={styles.container}>
-        <Text style={styles.title}>Sign In</Text>
+      <View style={styles.overlay}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Sign In</Text>
 
-        <View style={styles.formContainer}>
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Email: </Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-            />
-          </View>
+          <View style={styles.formContainer}>
+            <View style={styles.inputContainer}>
+              <Text style={styles.label}>Email: </Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Email"
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+              />
+            </View>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Password: </Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              value={password}
-              onChangeText={setPassword}
-              secureTextEntry
-            />
-          </View>
+            <View style={styles.inputContainer}>
+              <Text style={styles.label}>Password: </Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Password"
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry
+              />
+            </View>
 
-          <TouchableOpacity style={styles.button} onPress={handleSignIn}>
-            <Text style={styles.buttonText}>Sign In</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => Alert.alert("Reset Password", "Redirect to Reset Password Page")}>
-            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-          </TouchableOpacity>
-
-          <Text style={styles.footerText}>
-            Don't have an account? 
-            <TouchableOpacity>
-              <Text style={styles.linkText}> Sign Up</Text>
+            <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+              <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
-          </Text>
+
+            <TouchableOpacity onPress={() => Alert.alert("Reset Password", "Redirect to Reset Password Page")}>
+              <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+            </TouchableOpacity>
+
+            <Text style={styles.footerText}>
+              Don't have an account? 
+              <TouchableOpacity>
+                <Text style={styles.linkText}> Sign Up</Text>
+              </TouchableOpacity>
+            </Text>
+          </View>
         </View>
       </View>
     </ImageBackground>
@@ -70,44 +72,43 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  container: {
+  overlay: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: '100%',
+    height: '100%',
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 50,
-    color: '#fff',
-    textAlign: 'center',
+  container: {
+    width: '90%',
+    maxWidth: 400,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 10,
+    alignItems: 'center',
+    overflow: 'hidden',  
   },
   formContainer: {
-    backgroundColor: '#fff',
-    padding: 20,
-    borderRadius: 10,
     width: '100%',
-    maxWidth: 400,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 5,
+    position: 'relative',
   },
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
     marginBottom: 15,
   },
   label: {
-    width: 100,  
     fontSize: 16,
+    marginBottom: 5,
     color: '#333',
   },
   input: {
-    flex: 1,
     height: 50,
     borderColor: '#ccc',
     borderWidth: 1,
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#007bff',
     paddingVertical: 15,
     borderRadius: 5,
+    marginTop: 10,
   },
   buttonText: {
     color: '#fff',
@@ -133,11 +135,20 @@ const styles = StyleSheet.create({
   footerText: {
     textAlign: 'center',
     marginTop: 20,
+    fontSize: 14,
+    color: '#333',
   },
   linkText: {
     color: '#007bff',
     fontWeight: 'bold',
   },
+  title: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
 });
 
-export default signIn;
+export default SignIn;
